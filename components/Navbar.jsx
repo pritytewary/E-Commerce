@@ -200,19 +200,36 @@ export default function () {
                   onClick={toggleProfileDropdown}
                 />
                 {isProfileOpen && (
-                  <ul className="absolute bg-white border border-gray-300 rounded-md top-full mt-1">
-                    <li className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2">
+                  <ul className="   absolute bg-white border border-gray-300 rounded-md top-full mt-1 ">
+                    <Link
+                      className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2 cursor-pointer"
+                      href={""}
+                    >
                       <MdEventNote /> Order
-                    </li>
-                    <li className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2">
+                    </Link>
+                    <Link
+                      className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2 cursor-pointer"
+                      href={"/profile"}
+                    >
                       <CiUser /> Profile
-                    </li>
-                    <li className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2">
+                    </Link>
+                    <Link
+                      className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2 cursor-pointer"
+                      href={""}
+                    >
                       <FaHeart /> wishlist
-                    </li>
-                    <li className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2">
-                      <BiLogOutCircle className="rotate-90	" /> logout
-                    </li>
+                    </Link>
+                    <Link
+                      className="border-b border-gray-300 hover:text-pink-500 px-4 py-2 flex items-center gap-2 cursor-pointer"
+                      href={""}
+                      onClick={() => signOut()}
+                    >
+                      <BiLogOutCircle
+                        className="rotate-90	"
+                        onClick={() => signOut()}
+                      />{" "}
+                      logout
+                    </Link>
                   </ul>
                 )}
               </div>

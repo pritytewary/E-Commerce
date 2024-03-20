@@ -1,9 +1,12 @@
 import Profile from "@/components/Profile";
+import getAddress from "../address/getAddress";
+export default async function Profilepage() {
+  const data = await getAddress();
+  console.log(data);
 
-export default function Profilepage() {
   return (
     <div>
-      <Profile />
+      <Profile addresses={data.addresses} user={data.user} />
     </div>
   );
 }

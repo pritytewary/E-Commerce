@@ -9,10 +9,11 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [dateOfBirth, setdateOfBirth] = useState("");
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !dateOfBirth) {
       setError("All feilds are Necessery");
       return;
     }
@@ -41,11 +42,13 @@ export default function RegisterForm() {
           name,
           email,
           password,
+          dateOfBirth,
         }),
       });
 
       if (res.ok) {
         const form = e.target;
+        alert("User Registered");
         form.reset();
         router.push("/");
       } else {
@@ -107,6 +110,21 @@ export default function RegisterForm() {
               value={password}
               name="password"
               className="mt-1 p-2 w-full border-gray-300 rounded-md"
+            />
+
+            <label
+              for="birthday"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Birthday
+            </label>
+            <input
+              type="date"
+              id="birthday"
+              name="birthday"
+              className="mt-1 p-2 w-full border-gray-300 rounded-md"
+              value={dateOfBirth}
+              onChange={(e) => setdateOfBirth(e.target.value)}
             />
           </div>
           <button
